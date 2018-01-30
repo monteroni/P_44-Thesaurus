@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{09281B29-AD05-4A79-BDA2-E24232C974F4}</ProjectGuid>
+    <ProjectGuid>{93C5D809-AB51-45E1-BC22-C05FD11855DD}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Thésaurus</RootNamespace>
-    <AssemblyName>Thésaurus</AssemblyName>
+    <RootNamespace>Thesaurus</RootNamespace>
+    <AssemblyName>Thesaurus</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -45,12 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Controller\Controller.cs" />
+    <Compile Include="view\View.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="view\View.Designer.cs">
+      <DependentUpon>View.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Model.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

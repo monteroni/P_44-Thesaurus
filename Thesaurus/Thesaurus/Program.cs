@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Thésaurus
+namespace Thesaurus
 {
     static class Program
     {
@@ -14,9 +14,15 @@ namespace Thésaurus
         [STAThread]
         static void Main()
         {
+            // Les fondamentaux MVC (créations et liens entre eux) 
+            Controller control = new Controller();
+            Model model = new Model(control);
+            View view = new View(control);
+
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            //Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(view);
+
         }
     }
 }
