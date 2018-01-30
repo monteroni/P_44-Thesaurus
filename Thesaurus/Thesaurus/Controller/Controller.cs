@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Thésaurus
+namespace Thesaurus
 {
-    class Controller
+    public class Controller
     {
         // Pour accéder en L/E la vue et le modèle
         private Model _model;

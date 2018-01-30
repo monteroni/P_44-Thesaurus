@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Thésaurus.Properties
+namespace Thesaurus.Properties
 {
 
 

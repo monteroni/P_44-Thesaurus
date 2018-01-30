@@ -1,4 +1,4 @@
-﻿namespace Thésaurus
+﻿namespace Thesaurus
 {
     partial class View
     {
@@ -154,6 +154,8 @@
         private System.Windows.Forms.CheckBox cBoxWeb;
         private System.Windows.Forms.CheckBox cBoxEducanet;
         private System.Windows.Forms.DataGridView dataGridView1;
+
+
     }
 }
 

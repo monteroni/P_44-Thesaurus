@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Thésaurus
+namespace Thesaurus
 {
     static class Program
     {
@@ -20,8 +20,9 @@ namespace Thésaurus
             View view = new View(control);
 
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            //Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(view);
+
         }
     }
 }
