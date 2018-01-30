@@ -14,9 +14,14 @@ namespace Thésaurus
         [STAThread]
         static void Main()
         {
+            // Les fondamentaux MVC (créations et liens entre eux) 
+            Controller control = new Controller();
+            Model model = new Model(control);
+            View view = new View(control);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(view);
         }
     }
 }
