@@ -1,0 +1,14 @@
+Check Files:
+
+	vérifie si les fichiers sont toujours la
+	
+	si non va dans la table occurence et supprime les occurences
+
+
+check Word:
+
+	vérifie si un mots est dans une occurence 
+	
+	si non détruit le mot
+
+flush data
