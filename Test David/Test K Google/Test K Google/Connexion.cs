@@ -29,7 +29,7 @@ namespace Test_K_Google
             server = "localhost";
             database = "db_thesaurus";
             uid = "root";
-            password = "";
+            password = "root";
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
 

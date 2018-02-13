@@ -18,16 +18,18 @@ namespace Test_K_Google
 
         static void Main(string[] args)
         {
+
+
+
             FlushData fl = new FlushData();
 
-            //DirectoryInfo di = new DirectoryInfo(@"C:\Users\fischerda\Desktop\Test_Thesaurus");
-            //foreach (var fi in di.GetFiles( ))
-            //{
-            //    K_Google.AddFile(fi);
-            //}
+            DirectoryInfo di = new DirectoryInfo(@"K:\INF\Eleves\Temp");
+            WordOnTxt txt = new WordOnTxt(di);
 
-            //Console.WriteLine("Done");
+            Console.WriteLine("Done");
 
         }
+
+
     }
 }
