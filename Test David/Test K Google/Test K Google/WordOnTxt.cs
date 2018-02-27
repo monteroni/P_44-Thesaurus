@@ -10,12 +10,17 @@ namespace Test_K_Google
 {
     class WordOnTxt
     {
+
         public WordOnTxt(DirectoryInfo di)
         {
             string _encoding = "1252";
+
+
             foreach (var fi in di.GetFiles("*.txt", SearchOption.AllDirectories))
             {
                 K_Google.AddFile(fi);
+                List<Ocurrence> lstOccurence = new List<Ocurrence>();
+                
 
 
                 List<string> lstWord = new List<string>();
@@ -72,21 +77,48 @@ namespace Test_K_Google
                     if (!lstWord.Contains(substring))
                     {
                         lstWord.Add(substring);
-                    }
+                        lstOccurence.Add(new Ocurrence(fi, substring));
 
+                    }
+                    else
+                    {
+                        foreach (Ocurrence occurence in lstOccurence)
+                        {
+                            if (occurence.Word == substring)
+                            {
+                                occurence.IncreamentOccurence();
+                            }
+                        }
+
+
+                    }
+                    
 
                 }
                 lstSub.Sort();
-                foreach (var substring in lstWord)
-                    AddWord(substring);
-
+                foreach (var word in lstWord)
+                    AddWord(word);
+                foreach (Ocurrence ocu in lstOccurence)
+                    ocu.SendToDataBase();
             }
+
         }
+
         private static void AddWord(string word)
         {
-            string request = "INSERT INTO t_word (worWord) VALUES('" + word + "');";
+            Dictionary<string, string> dicWord = new Dictionary<string, string>();
+            string request = "INSERT INTO t_word (worWord) VALUES(@word);";
+            dicWord.Add("@word", word);
             Connexion conec = new Connexion();
-            conec.SqlCommand(request);
+            conec.SqlCommand(request, dicWord);
+        }
+        private void SendOccurence(List<Ocurrence> lstOccurence)
+        {
+            foreach (Ocurrence occurence in lstOccurence)
+            {
+                occurence.SendToDataBase();
+            }
         }
     }
 }
+

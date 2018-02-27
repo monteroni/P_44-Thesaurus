@@ -10,7 +10,7 @@ namespace Test_K_Google
     {
         private Connexion connect = new Connexion();
         private string sqlCommandWord = "DELETE  FROM `db_thesaurus`.`t_word`";
-        private string sqlCommandOccurence = "DELETE  FROM `db_thesaurus`.`occurence`";
+        private string sqlCommandOccurence = "DELETE  FROM `db_thesaurus`.`t_occurence`";
         private string sqlCommandFile = "DELETE  FROM `t_file`";
 
         /// <summary>
@@ -19,11 +19,11 @@ namespace Test_K_Google
         public FlushData()
         {
             
-            connect.SqlCommand(sqlCommandFile);
+            connect.SqlCommand(sqlCommandFile , null);
             
-            connect.SqlCommand(sqlCommandOccurence);
+            connect.SqlCommand(sqlCommandOccurence , null);
             
-            connect.SqlCommand(sqlCommandWord);
+            connect.SqlCommand(sqlCommandWord , null);
 
 
         }

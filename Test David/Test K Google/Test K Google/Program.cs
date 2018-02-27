@@ -27,7 +27,7 @@ namespace Test_K_Google
             WordOnTxt txt = new WordOnTxt(di);
 
             Console.WriteLine("Done");
-
+            Console.ReadLine();
         }
 
 

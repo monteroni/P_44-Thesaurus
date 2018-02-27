@@ -17,6 +17,8 @@ namespace Test_K_Google
         private string uid;
         private string password;
 
+        public MySqlConnection Connection { get => connection; set => connection = value; }
+
         //Constructor
         public Connexion()
         {
@@ -45,14 +47,14 @@ namespace Test_K_Google
                 return true;
             }
             catch (MySqlException ex)
-            {                
+            {
                 return false;
             }
 
         }
 
         //Close connection
-        private string CloseConnection()
+        public string CloseConnection()
         {
             try
             {
@@ -62,20 +64,30 @@ namespace Test_K_Google
             catch (MySqlException ex)
             {
                 return ex.Message;
-                
+
             }
         }
 
         //SqlCommand
-        public void SqlCommand(string query)
+        public void SqlCommand(string query, Dictionary<string, string> dico)
         {
-            
+
             //open connection
             if (this.OpenConnection() == true)
             {
                 //create command and assign the query and connection from the constructor
                 MySqlCommand cmd = new MySqlCommand(query, connection);
+                if (dico != null)
+                {
 
+
+                    foreach (KeyValuePair<string, string> kvp in dico)
+                    {
+                        cmd.Parameters.AddWithValue(kvp.Key, kvp.Value);
+                    }
+                    //prepare the command
+                    cmd.Prepare();
+                }
                 //Execute command
                 cmd.ExecuteNonQuery();
 
@@ -84,7 +96,7 @@ namespace Test_K_Google
             }
         }
 
-        
+
 
     }
 }
