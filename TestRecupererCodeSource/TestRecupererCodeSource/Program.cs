@@ -38,7 +38,7 @@ namespace TestRecupererCodeSource
                         substrings = myText.Split(delimiter);
                         for (int x = 0; x < substrings.Length; x++)
                         {
-                            File.AppendAllText("F:/test.txt",substrings[x]+Environment.NewLine);
+                            File.AppendAllText("G:/test.txt",substrings[x]+Environment.NewLine);
                             Console.WriteLine(substrings[x]);
                         }
                     }

@@ -73,6 +73,7 @@
     <Compile Include="Ocurrence.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TemplateFileSeparator.cs" />
     <Compile Include="WordOnTxt.cs" />
   </ItemGroup>
   <ItemGroup>
