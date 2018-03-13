@@ -22,9 +22,10 @@ namespace Test_K_Google
             dicFile.Add("@extension", fi.Extension);
             dicFile.Add("@url", fi.DirectoryName + "\\" + fi.Name);
             dicFile.Add("@size", fi.Length.ToString());
-            string request = "INSERT INTO t_file (filName , filSize , filExtend , filURL) VALUES ( '" + fi_name + "', '" + fi_size + "' , '" + fi_extension + "' , '" + fi_url + "');";
-            request = "INSERT INTO t_file (filName , filSize , filExtend , filURL) VALUES ( @name, @size , @extension , @url);";
-            conec.SqlCommand(request , dicFile);
+            
+
+            string request = "INSERT INTO t_file (filName , filSize , filExtend , filURL) VALUES ( @name, @size , @extension , @url);";
+            conec.SqlCommandINSDEL(request , dicFile);
         }
     }
 }

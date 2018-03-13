@@ -11,21 +11,55 @@ namespace Test_K_Google
 {
     class Ocurrence
     {
-        private string _word, _URL , _SimpleURL;
+        private string _word, _URL, _SimpleURL;
         private int _numberOfOccurence;
-        private int idFile, idWord;
+        private string idFile, idWord;
 
         public Ocurrence(FileInfo fi, string word)
         {
             this._word = word;
             this._URL = fi.DirectoryName + "\\" + fi.Name;
-            this._SimpleURL =  this._URL.Replace("\\" , "\\\\");
-            
+            this._SimpleURL = this._URL.Replace("\\", "\\\\");
+
             this._numberOfOccurence = 1;
 
-            this.idFile = SelecetId("idFile", "t_file", _SimpleURL, "filURL");
-            this.idWord = SelecetId("IdWord", "t_word", _word, "worWord");
+            string requestWord = "SELECT IdWord from t_word where `worWord`='"+_word+"';";
+            string requestFile = "SELECT idFile from t_file where `filURL`='"+ _SimpleURL +"';";
+            
+            
+
+            Connexion conec = new Connexion();
+
+            if (conec.OpenConnection() == true)
+            {
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(requestFile, conec.Connection);                                  
+                //Execute command            
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    idFile = reader[0].ToString();
+                }
+                //close connection
+                conec.CloseConnection();
+            }
+            Connexion conec2 = new Connexion();
+            if (conec2.OpenConnection() == true)
+            {
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(requestWord, conec2.Connection);
+                //Execute command            
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    idWord = reader[0].ToString();
+                }
+                //close connection
+                conec2.CloseConnection();
+            }
         }
+
+
 
         public void IncreamentOccurence()
         {
@@ -40,28 +74,17 @@ namespace Test_K_Google
             dicOcu.Add("@file", this.idFile.ToString());
             dicOcu.Add("@word", this.idWord.ToString());
             Connexion conec = new Connexion();
-            conec.SqlCommand(request, dicOcu);
+            conec.SqlCommandINSDEL(request, dicOcu);
 
         }
 
-        private int SelecetId(string id, string table, string word, string where)
+        private List<List<string>> SelecetId(string request)
         {
-            string query = "SELECT " + id + " from " + table + " where `" + where + "`='" + word + "';";
+            List<List<string>> lstSELECT = new List<List<string>>();
             Connexion conec = new Connexion();
-
-            conec.OpenConnection();
-            //create command and assign the query and connection from the constructor
-            MySqlCommand cmd = new MySqlCommand(query, conec.Connection);
-
-            //Execute command
-            int result = cmd.ExecuteNonQuery();
-            // result gives the -1 output.. but on insert its 1
-
-
-            //close connection
-            conec.CloseConnection();
-
-            return result;
+            lstSELECT = conec.SqlCommandSelect(request, null);
+            
+            return lstSELECT;
         }
 
 

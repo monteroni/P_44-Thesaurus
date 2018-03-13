@@ -68,8 +68,8 @@ namespace Test_K_Google
             }
         }
 
-        //SqlCommand
-        public void SqlCommand(string query, Dictionary<string, string> dico)
+        //SqlCommandINSDEL
+        public void SqlCommandINSDEL(string query, Dictionary<string, string> dico)
         {
 
             //open connection
@@ -94,6 +94,46 @@ namespace Test_K_Google
                 //close connection
                 this.CloseConnection();
             }
+        }
+
+        //SqlCommandINSDEL
+        public List<List<string>> SqlCommandSelect(string query, Dictionary<string, string> dico)
+        {
+            List<List<string>> lstSELECT = new List<List<string>>();
+            //open connection
+            if (this.OpenConnection() == true)
+            {
+                
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                if (dico != null)
+                {
+
+
+                    foreach (KeyValuePair<string, string> kvp in dico)
+                    {
+                        cmd.Parameters.AddWithValue(kvp.Key, kvp.Value);
+                    }
+                    //prepare the command
+                    cmd.Prepare();
+                }
+                //Execute command
+                
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    List<string> lst = new List<string>();
+                    foreach(var v in reader)
+                        lst.Add(v.ToString());
+                }
+                
+                //close connection
+                this.CloseConnection();
+                
+            }
+            return lstSELECT;
         }
 
 

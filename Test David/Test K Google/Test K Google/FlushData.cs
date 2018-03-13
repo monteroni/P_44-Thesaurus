@@ -19,11 +19,11 @@ namespace Test_K_Google
         public FlushData()
         {
             
-            connect.SqlCommand(sqlCommandFile , null);
+            connect.SqlCommandINSDEL(sqlCommandFile , null);
             
-            connect.SqlCommand(sqlCommandOccurence , null);
+            connect.SqlCommandINSDEL(sqlCommandOccurence , null);
             
-            connect.SqlCommand(sqlCommandWord , null);
+            connect.SqlCommandINSDEL(sqlCommandWord , null);
 
 
         }

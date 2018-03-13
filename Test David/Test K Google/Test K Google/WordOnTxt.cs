@@ -15,11 +15,11 @@ namespace Test_K_Google
         {
             string _encoding = "1252";
 
-
+            List<Ocurrence> lstOccurence = new List<Ocurrence>();
             foreach (var fi in di.GetFiles("*.txt", SearchOption.AllDirectories))
             {
                 K_Google.AddFile(fi);
-                List<Ocurrence> lstOccurence = new List<Ocurrence>();
+                
                 
 
 
@@ -98,10 +98,10 @@ namespace Test_K_Google
                 lstSub.Sort();
                 foreach (var word in lstWord)
                     AddWord(word);
-                foreach (Ocurrence ocu in lstOccurence)
-                    ocu.SendToDataBase();
+                
             }
-
+            foreach (Ocurrence ocu in lstOccurence)
+                ocu.SendToDataBase();
         }
 
         private static void AddWord(string word)
@@ -110,7 +110,7 @@ namespace Test_K_Google
             string request = "INSERT INTO t_word (worWord) VALUES(@word);";
             dicWord.Add("@word", word);
             Connexion conec = new Connexion();
-            conec.SqlCommand(request, dicWord);
+            conec.SqlCommandINSDEL(request, dicWord);
         }
         private void SendOccurence(List<Ocurrence> lstOccurence)
         {
