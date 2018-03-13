@@ -34,7 +34,6 @@
             this.btnLuck = new System.Windows.Forms.Button();
             this.cBoxTemp = new System.Windows.Forms.CheckBox();
             this.cBoxWeb = new System.Windows.Forms.CheckBox();
-            this.cBoxEducanet = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -98,18 +97,6 @@
             this.cBoxWeb.Text = "ETML";
             this.cBoxWeb.UseVisualStyleBackColor = true;
             // 
-            // cBoxEducanet
-            // 
-            this.cBoxEducanet.AutoSize = true;
-            this.cBoxEducanet.Checked = true;
-            this.cBoxEducanet.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cBoxEducanet.Location = new System.Drawing.Point(615, 145);
-            this.cBoxEducanet.Name = "cBoxEducanet";
-            this.cBoxEducanet.Size = new System.Drawing.Size(120, 17);
-            this.cBoxEducanet.TabIndex = 6;
-            this.cBoxEducanet.Text = "Classeur educanet2";
-            this.cBoxEducanet.UseVisualStyleBackColor = true;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -118,13 +105,12 @@
             this.dataGridView1.Size = new System.Drawing.Size(671, 358);
             this.dataGridView1.TabIndex = 7;
             // 
-            // Form1
+            // View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 562);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.cBoxEducanet);
             this.Controls.Add(this.cBoxWeb);
             this.Controls.Add(this.cBoxTemp);
             this.Controls.Add(this.btnLuck);
@@ -135,7 +121,7 @@
             this.MaximumSize = new System.Drawing.Size(800, 600);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(800, 600);
-            this.Name = "Form1";
+            this.Name = "View";
             this.ShowIcon = false;
             this.Text = " Smart Thésaurus";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -152,7 +138,6 @@
         private System.Windows.Forms.Button btnLuck;
         private System.Windows.Forms.CheckBox cBoxTemp;
         private System.Windows.Forms.CheckBox cBoxWeb;
-        private System.Windows.Forms.CheckBox cBoxEducanet;
         private System.Windows.Forms.DataGridView dataGridView1;
 
 
