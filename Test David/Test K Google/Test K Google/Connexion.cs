@@ -89,7 +89,15 @@ namespace Test_K_Google
                     cmd.Prepare();
                 }
                 //Execute command
-                cmd.ExecuteNonQuery();
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+
+                }
+                
 
                 //close connection
                 this.CloseConnection();

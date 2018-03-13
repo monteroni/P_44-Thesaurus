@@ -23,17 +23,17 @@ namespace Test_K_Google
 
             this._numberOfOccurence = 1;
 
-            string requestWord = "SELECT IdWord from t_word where `worWord`='"+_word+"';";
-            string requestFile = "SELECT idFile from t_file where `filURL`='"+ _SimpleURL +"';";
-            
-            
+            string requestWord = "SELECT idWord from t_word where `worWord`='" + _word + "';";
+            string requestFile = "SELECT idFile from t_file where `filURL`='" + _SimpleURL + "';";
+
+
 
             Connexion conec = new Connexion();
 
             if (conec.OpenConnection() == true)
             {
                 //create command and assign the query and connection from the constructor
-                MySqlCommand cmd = new MySqlCommand(requestFile, conec.Connection);                                  
+                MySqlCommand cmd = new MySqlCommand(requestFile, conec.Connection);
                 //Execute command            
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -42,6 +42,10 @@ namespace Test_K_Google
                 }
                 //close connection
                 conec.CloseConnection();
+            }
+            else
+            {
+                Console.WriteLine("Il y a un problème avec la connexion");
             }
             Connexion conec2 = new Connexion();
             if (conec2.OpenConnection() == true)
@@ -56,6 +60,10 @@ namespace Test_K_Google
                 }
                 //close connection
                 conec2.CloseConnection();
+            }
+            else
+            {
+                Console.WriteLine("Il y a un problème avec la connexion");
             }
         }
 
@@ -83,7 +91,7 @@ namespace Test_K_Google
             List<List<string>> lstSELECT = new List<List<string>>();
             Connexion conec = new Connexion();
             lstSELECT = conec.SqlCommandSelect(request, null);
-            
+
             return lstSELECT;
         }
 

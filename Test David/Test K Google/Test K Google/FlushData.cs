@@ -18,10 +18,11 @@ namespace Test_K_Google
         /// </summary>
         public FlushData()
         {
-            
+            connect.SqlCommandINSDEL(sqlCommandOccurence, null);
+
             connect.SqlCommandINSDEL(sqlCommandFile , null);
             
-            connect.SqlCommandINSDEL(sqlCommandOccurence , null);
+            
             
             connect.SqlCommandINSDEL(sqlCommandWord , null);
 

@@ -23,7 +23,7 @@ namespace Test_K_Google
 
             FlushData fl = new FlushData();
 
-            DirectoryInfo di = new DirectoryInfo(@"K:\INF\Eleves\Temp\P_Thesaurus");
+            DirectoryInfo di = new DirectoryInfo(@"K:\INF\Eleves\Temp");
             WordOnTxt txt = new WordOnTxt(di);
 
             Console.WriteLine("Done");

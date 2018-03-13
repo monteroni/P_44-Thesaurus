@@ -10,12 +10,12 @@ namespace Test_K_Google
 {
     class WordOnTxt
     {
-
+        private List<Ocurrence> lstOccurence = new List<Ocurrence>();
         public WordOnTxt(DirectoryInfo di)
         {
             string _encoding = "1252";
 
-            List<Ocurrence> lstOccurence = new List<Ocurrence>();
+            
             foreach (var fi in di.GetFiles("*.txt", SearchOption.AllDirectories))
             {
                 K_Google.AddFile(fi);
@@ -69,16 +69,28 @@ namespace Test_K_Google
                         lstSub.Add(word);
                 }
                 lstSub.Sort();
-
-
-
                 foreach (var substring in lstSub)
                 {
                     if (!lstWord.Contains(substring))
                     {
-                        lstWord.Add(substring);
-                        lstOccurence.Add(new Ocurrence(fi, substring));
-
+                        lstWord.Add(substring);                        
+                    }
+                }
+                lstSub.Sort();
+                foreach (var word in lstWord)
+                    AddWord(word);
+                List<string> lstWord2 = new List<string>();
+                foreach (var substring in lstSub)
+                {
+                    if (!lstWord2.Contains(substring))
+                    {
+                        Ocurrence ocucu = new Ocurrence(fi, substring);
+                        if (!lstOccurence.Contains(ocucu))
+                        {
+                            lstOccurence.Add(ocucu);
+                            lstWord2.Add(substring);
+                        }
+                        
                     }
                     else
                     {
@@ -95,9 +107,7 @@ namespace Test_K_Google
                     
 
                 }
-                lstSub.Sort();
-                foreach (var word in lstWord)
-                    AddWord(word);
+                
                 
             }
             foreach (Ocurrence ocu in lstOccurence)
@@ -112,13 +122,7 @@ namespace Test_K_Google
             Connexion conec = new Connexion();
             conec.SqlCommandINSDEL(request, dicWord);
         }
-        private void SendOccurence(List<Ocurrence> lstOccurence)
-        {
-            foreach (Ocurrence occurence in lstOccurence)
-            {
-                occurence.SendToDataBase();
-            }
-        }
+
     }
 }
 
