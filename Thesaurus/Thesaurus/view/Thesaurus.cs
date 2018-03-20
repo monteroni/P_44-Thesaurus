@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace Thesaurus
 {
-        public partial class View : Form
+        public partial class frmThesaurus : Form
         {
 
             private Controller control;
             /// <summary>
             /// Constructeur de la vue 
             /// </summary>
-            public View(Controller control)
+            public frmThesaurus(Controller control)
             {
                 // Links Control & View
                 this.control = control;
@@ -26,5 +26,11 @@ namespace Thesaurus
                 // Prepares the UI
                 InitializeComponent();
             }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            view.frmUpdate frmUp = new view.frmUpdate(control);
+            frmUp.ShowDialog();
         }
+    }
 }

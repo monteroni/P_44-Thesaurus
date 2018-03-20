@@ -1,6 +1,6 @@
 ﻿namespace Thesaurus
 {
-    partial class View
+    partial class frmThesaurus
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -35,6 +35,7 @@
             this.cBoxTemp = new System.Windows.Forms.CheckBox();
             this.cBoxWeb = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,11 +106,22 @@
             this.dataGridView1.Size = new System.Drawing.Size(671, 358);
             this.dataGridView1.TabIndex = 7;
             // 
-            // View
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(592, 28);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(143, 23);
+            this.btnUpdate.TabIndex = 8;
+            this.btnUpdate.Text = "Mettre à jour Thésaurus";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // frmThesaurus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 562);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.cBoxWeb);
             this.Controls.Add(this.cBoxTemp);
@@ -121,7 +133,7 @@
             this.MaximumSize = new System.Drawing.Size(800, 600);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(800, 600);
-            this.Name = "View";
+            this.Name = "frmThesaurus";
             this.ShowIcon = false;
             this.Text = " Smart Thésaurus";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -139,8 +151,7 @@
         private System.Windows.Forms.CheckBox cBoxTemp;
         private System.Windows.Forms.CheckBox cBoxWeb;
         private System.Windows.Forms.DataGridView dataGridView1;
-
-
+        private System.Windows.Forms.Button btnUpdate;
     }
 }
 

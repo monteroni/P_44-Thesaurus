@@ -17,7 +17,7 @@ namespace Thesaurus
             // Les fondamentaux MVC (créations et liens entre eux) 
             Controller control = new Controller();
             Model model = new Model(control);
-            View view = new View(control);
+            frmThesaurus view = new frmThesaurus(control);
 
             Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
