@@ -9,23 +9,31 @@ namespace Test_K_Google
 {
     abstract class TemplateFileSeparator
     {
+        /// <summary>
+        /// tableau des caractères qui va nous servir à séparer les mots
+        /// </summary>
+        private Char[] delimiter = new char[] { '[', ']', '#', '^', '¦', '|', '£', '<', '>', '_', '$', '\n', '\r', '.', ' ', ',', '\'', '!', '?', '(', ')', '%', '&', '"', '=', '+', '{', '}', '*', ';', ':', '\\', '-', '/' };
+        public List<Ocurrence> lstOccurence = new List<Ocurrence>();
         public List<string> lstWord = new List<string>();
+        /// <summary>
+        /// méthode permettant de mettre à jour la base de donnée
+        /// </summary>
+        public abstract void GetUpdate(FileInfo fi);
 
-        public abstract string Recovery();
-
+        /// <summary>
+        /// Méthode de récupération du contenu dans un string
+        /// </summary>
+        /// <returns>contenu d'un fichier</returns>
+        public abstract string Recovery(FileInfo fi);
+        /// <summary>
+        /// Méthode permettant de séparer tout les mots
+        /// </summary>
+        /// <param name="recovery">text brut</param>
+        /// <returns>liste de mots séparé</returns>
         public List<string> Separator(string recovery)
         {
-            Char[] delimiter = new char[] { '[', ']', '#', '^', '¦', '|', '£', '<', '>', '_', '$', '\n', '\r', '.', ' ', ',', '\'', '!', '?', '(', ')', '%', '&', '"', '=', '+', '{', '}', '*', ';', ':', '\\', '-', '/' };
-
             String[] substrings = recovery.Split(delimiter);
-
-
-
-
-            //List<string> lstSub = new List<string>(substrings);
-
             List<string> lstSub = new List<string>();
-
             foreach (string word in substrings)
             {
                 if (word.Count() > 0)
@@ -44,8 +52,14 @@ namespace Test_K_Google
                 AddWord(word);
             return lstSub;
         }
-
-        public List<Ocurrence> SettOccurence(List<string> lstSub, FileInfo fi , List<Ocurrence> lstOccurence)
+        /// <summary>
+        /// méthode permettant de lister les Occurences et de leurs incrémentations
+        /// </summary>
+        /// <param name="lstSub">liste des mots séparés</param>
+        /// <param name="fi">fichier dans lequel l'occurence à été trouvée</param>
+        /// <param name="lstOccurence">liste des occurences</param>
+        /// <returns>la liste des occurences remplie</returns>
+        public void SetOccurence(List<string> lstSub, FileInfo fi , List<Ocurrence> lstOccurence)
         {
             List<string> lstWord2 = new List<string>();
             foreach (var substring in lstSub)
@@ -58,7 +72,6 @@ namespace Test_K_Google
                         lstOccurence.Add(ocucu);
                         lstWord2.Add(substring);
                     }
-
                 }
                 else
                 {
@@ -69,17 +82,16 @@ namespace Test_K_Google
                             occurence.IncreamentOccurence();
                         }
                     }
-
-
                 }
-
-
             }
-            return lstOccurence;
+            foreach (Ocurrence ocu in lstOccurence)
+                ocu.SendToDataBase();
         }
-
-
-        private static void AddWord(string word)
+        /// <summary>
+        /// Méthode permettant d'ajouter les mots dans la base de donnée
+        /// </summary>
+        /// <param name="word">le mot à ajouter</param>
+        public static void AddWord(string word)
         {
             Dictionary<string, string> dicWord = new Dictionary<string, string>();
             string request = "INSERT INTO t_word (worWord) VALUES(@word);";

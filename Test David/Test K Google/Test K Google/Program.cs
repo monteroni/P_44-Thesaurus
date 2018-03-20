@@ -23,9 +23,9 @@ namespace Test_K_Google
 
             FlushData fl = new FlushData();
 
-            DirectoryInfo di = new DirectoryInfo(@"K:\INF\Eleves\Temp");
-            WordOnTxt txt = new WordOnTxt(di);
-
+            DirectoryInfo di = new DirectoryInfo(@"K:\INF\Eleves\Temp\a");
+            //WordOnTxt txt = new WordOnTxt(di);
+            FactoryFileSeparator ffs = new FactoryFileSeparator(di);
             Console.WriteLine("Done");
             Console.ReadLine();
         }

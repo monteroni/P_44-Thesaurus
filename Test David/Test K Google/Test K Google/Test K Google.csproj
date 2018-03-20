@@ -68,12 +68,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connexion.cs" />
+    <Compile Include="FactoryFileSeparator.cs" />
     <Compile Include="FlushData.cs" />
     <Compile Include="K_Google.cs" />
     <Compile Include="Ocurrence.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TemplateFileSeparator.cs" />
+    <Compile Include="TxtSeparator.cs" />
     <Compile Include="WordOnTxt.cs" />
   </ItemGroup>
   <ItemGroup>
