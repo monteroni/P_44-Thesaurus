@@ -7,13 +7,13 @@ using System.IO;
 using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
 
-namespace Test_K_Google
+namespace Thesaurus.UpdateDB
 {
     class Ocurrence
     {
         private string _word, _URL, _SimpleURL;
         private int _numberOfOccurence;
-        private string idFile = "", idWord = "";
+        private string idFile, idWord;
 
         public Ocurrence(FileInfo fi, string word , string url)
         {

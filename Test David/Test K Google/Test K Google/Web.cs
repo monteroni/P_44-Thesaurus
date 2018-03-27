@@ -9,12 +9,15 @@ using System.Text.RegularExpressions;
 using System.IO;
 using System.Collections.Generic;
 
-namespace TestRecupererCodeSource
+namespace Test_K_Google
 {
-    class Web
+    class Web : TemplateFileSeparator
     {
+
         public Web(string url)
         {
+
+            K_Google.AddWeb(url);
             List<string> lstSub = new List<string>();
             
             // Séparateur de mot
@@ -30,20 +33,13 @@ namespace TestRecupererCodeSource
                 if (url != "" && urlRegex.IsMatch(url))
                 {
                     Uri uri = new Uri(url);
-                    string myText = getTextInHTML(uri);
-                    myText.ToLower();
+                    SetOccurence(Separator(getTextInHTML(uri)) , null , lstOccurence , url);
                     
-                    substrings = myText.Split(delimiter);
-                    for (int x = 0; x < substrings.Length; x++)
-                    {
-                        lstSub.Add(substrings[x]);
-                        //File.AppendAllText("G:/test.txt", substrings[x] + Environment.NewLine);
-                        Console.WriteLine(substrings[x]);
-                    }
+                    
+                    
                 }
-                Console.Read();
-
             }
+            
         }
 
 
@@ -68,6 +64,28 @@ namespace TestRecupererCodeSource
             html = Encoding.UTF8.GetString(bytes);
             html = Regex.Replace(html, @"[ ]{2,}", " ");
             return html;
+        }
+
+
+
+        
+
+
+        /// <summary>
+        /// méthode permettant de mettre à jour la base de donnée
+        /// </summary>
+        public override void GetUpdate(FileInfo fi)
+        {
+
+        }
+
+        /// <summary>
+        /// Méthode de récupération du contenu dans un string
+        /// </summary>
+        /// <returns>contenu d'un fichier</returns>
+        public override string Recovery(FileInfo fi)
+        {
+            return null;
         }
     }
 }

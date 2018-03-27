@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Test_K_Google
+namespace Thesaurus.UpdateDB
 {
     abstract class TemplateFileSeparator
     {

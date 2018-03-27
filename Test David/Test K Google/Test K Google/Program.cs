@@ -18,14 +18,26 @@ namespace Test_K_Google
 
         static void Main(string[] args)
         {
-
+            
 
 
             FlushData fl = new FlushData();
-
-            DirectoryInfo di = new DirectoryInfo(@"K:\INF\Eleves\Temp\a");
-            //WordOnTxt txt = new WordOnTxt(di);
-            FactoryFileSeparator ffs = new FactoryFileSeparator(di);
+            switch(args[1])
+            {
+                case "file":
+                    DirectoryInfo di = new DirectoryInfo(args[0]);
+                    //WordOnTxt txt = new WordOnTxt(di);
+                    FactoryFileSeparator ffs = new FactoryFileSeparator(di);
+                    break;
+                case "web":
+                    Console.WriteLine(args[0]);
+                    
+                    Web wee = new Web(args[0]);
+                    break;
+                default:
+                    break;
+            }
+            
             Console.WriteLine("Done");
             Console.ReadLine();
         }

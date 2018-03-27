@@ -42,6 +42,7 @@ namespace TestRecupererCodeSource
                             Console.WriteLine(substrings[x]);
                         }
                     }
+                    Console.Read();
                 } while (true);
             }
         }

@@ -34,13 +34,23 @@ namespace Thesaurus
 
         public void UpdateTemp(string path)
         {
-            Process.Start("Test K Google.exe", path + " file");
+            //Process.Start("Test K Google.exe", path + " file");
+            try
+            {
+                UpdateDB.UpdateDB udb = new UpdateDB.UpdateDB(path, "file");
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("{0} Second exception caught.", e);
+            }
         }
         public void UpdateWeb(string url)
         {
             try
             {
-                Process.Start("Test K Google.exe", url + " web");
+                UpdateDB.UpdateDB udb = new UpdateDB.UpdateDB(url, "web");
+                
             }
             catch (Exception e)
             {

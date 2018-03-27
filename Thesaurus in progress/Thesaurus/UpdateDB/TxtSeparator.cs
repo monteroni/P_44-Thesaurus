@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace Test_K_Google
+namespace Thesaurus.UpdateDB
 {
     class TxtSeparator : TemplateFileSeparator
     {
