@@ -53,12 +53,12 @@
             // 
             this.txtBoxSearch.Location = new System.Drawing.Point(64, 112);
             this.txtBoxSearch.Name = "txtBoxSearch";
-            this.txtBoxSearch.Size = new System.Drawing.Size(264, 20);
+            this.txtBoxSearch.Size = new System.Drawing.Size(671, 20);
             this.txtBoxSearch.TabIndex = 1;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(64, 138);
+            this.btnSearch.Location = new System.Drawing.Point(335, 138);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 2;
@@ -67,7 +67,7 @@
             // 
             // btnLuck
             // 
-            this.btnLuck.Location = new System.Drawing.Point(148, 138);
+            this.btnLuck.Location = new System.Drawing.Point(416, 138);
             this.btnLuck.Name = "btnLuck";
             this.btnLuck.Size = new System.Drawing.Size(105, 23);
             this.btnLuck.TabIndex = 3;
@@ -79,7 +79,7 @@
             this.cBoxTemp.AutoSize = true;
             this.cBoxTemp.Checked = true;
             this.cBoxTemp.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cBoxTemp.Location = new System.Drawing.Point(495, 145);
+            this.cBoxTemp.Location = new System.Drawing.Point(592, 57);
             this.cBoxTemp.Name = "cBoxTemp";
             this.cBoxTemp.Size = new System.Drawing.Size(53, 17);
             this.cBoxTemp.TabIndex = 4;
@@ -91,7 +91,7 @@
             this.cBoxWeb.AutoSize = true;
             this.cBoxWeb.Checked = true;
             this.cBoxWeb.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cBoxWeb.Location = new System.Drawing.Point(554, 145);
+            this.cBoxWeb.Location = new System.Drawing.Point(680, 57);
             this.cBoxWeb.Name = "cBoxWeb";
             this.cBoxWeb.Size = new System.Drawing.Size(55, 17);
             this.cBoxWeb.TabIndex = 5;

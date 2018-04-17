@@ -18,11 +18,19 @@ namespace Test_K_Google
 
         static void Main(string[] args)
         {
-            
 
 
+            string[] tab = new string[] {  "C:\\Users\fischerda\\Desktop\\Temp\\" , "file" };
             FlushData fl = new FlushData();
-            switch(args[1])
+            //switchMod(tab);
+            switchMod(args);
+            Console.WriteLine("Done");
+            Console.ReadLine();
+        }
+
+        private static void switchMod(string[] args)
+        {
+            switch (args[1])
             {
                 case "file":
                     DirectoryInfo di = new DirectoryInfo(args[0]);
@@ -31,17 +39,13 @@ namespace Test_K_Google
                     break;
                 case "web":
                     Console.WriteLine(args[0]);
-                    
+
                     Web wee = new Web(args[0]);
                     break;
                 default:
                     break;
             }
-            
-            Console.WriteLine("Done");
-            Console.ReadLine();
         }
-
 
     }
 }

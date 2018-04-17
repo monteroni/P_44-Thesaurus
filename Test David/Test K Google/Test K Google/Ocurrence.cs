@@ -22,7 +22,7 @@ namespace Test_K_Google
             {
                 this._URL = url;
             }
-            else if(fi != null && url.Length == 0)
+            else if(fi != null && url == null)
             {
                 this._URL = fi.DirectoryName + "\\" + fi.Name;
                 this._SimpleURL = this._URL.Replace("\\", "\\\\");
